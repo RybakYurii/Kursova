@@ -11,8 +11,6 @@ services:
     container_name: books_api
     environment:
       MY_TELEGRAM_BOT_TOKEN: ${MY_TELEGRAM_BOT_TOKEN}
-    ports:
-      - 8000:8000
     expose:
       - 8000
     networks:
