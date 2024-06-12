@@ -1,0 +1,24 @@
+---
+version: '3.3'
+
+services:
+  booksapi:
+    image: books_api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: books_api
+    environment:
+      MY_TELEGRAM_BOT_TOKEN: ${MY_TELEGRAM_BOT_TOKEN}
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    networks:
+      - kursova-network
+
+networks:
+  kursova-network:
+    external:
+      name: kursova-network
